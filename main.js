@@ -44,13 +44,31 @@ function criarSenha() {
     return '';
   }
 
-  let charset = opcoes.map(chave => sets[chave]).join('');
+  // Garantir que cada tipo selecionado tenha pelo menos um caractere
   let senha = '';
+  const tiposObrigatorios = {
+    'maiusculo': sets.maiusculo,
+    'minusculo': sets.minusculo,
+    'numero': sets.numero,
+    'simbolo': sets.simbolo
+  };
 
-  for (let i = 0; i < tamanho; i += 1) {
+  // Adicionar pelo menos um caractere de cada tipo selecionado
+  opcoes.forEach(tipo => {
+    const conjunto = tiposObrigatorios[tipo];
+    const indice = Math.floor(Math.random() * conjunto.length);
+    senha += conjunto[indice];
+  });
+
+  // Preencher o restante aleatoriamente
+  let charset = opcoes.map(chave => sets[chave]).join('');
+  for (let i = senha.length; i < tamanho; i += 1) {
     const indice = Math.floor(Math.random() * charset.length);
     senha += charset[indice];
   }
+
+  // Embaralhar a senha para não ter padrão previsível
+  senha = senha.split('').sort(() => Math.random() - 0.5).join('');
 
   return senha;
 }
