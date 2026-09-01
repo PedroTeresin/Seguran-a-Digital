@@ -1,123 +1,252 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap');
 
-:root{
-    --branco: white;
-    --cor-de-fundo: #00162E;
-    --fundo-senha: #00244D;
-    --fundo-texto: #001E40;
-    --borda: #0075FF;
+:root {
+    --branco: #ffffff;
+    --cor-de-fundo: #acacac;
+    --fundo-senha: #516a88
+    --fundo-texto: #516a88;
+    --borda: #283b52b4;
     --roboto: 'Roboto', sans-serif;
     --roboto-mono: 'Roboto Mono', monospace;
 }
 
-*{
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
     font-weight: 400;
 }
 
-body{
+body {
     color: var(--branco);
     background-color: var(--cor-de-fundo);
     font-family: var(--roboto);
+    min-height: 100vh;
 }
 
-.titulo-principal{
-    font-family: var(--roboto-mono);
-    font-size: 32px;
-}
-
-.titulo-secundario{
-    font-size: 24px;
-}
-
-.conteudo-titulo{
-    text-align: center;
-    margin-top: 80px;
-}
-
-.conteudo-senha{
-    margin-top: 80px; 
-    background: var(--fundo-senha);
+.conteudo {
+    max-width: 1100px;
+    margin: 0 auto;
     padding: 24px;
+}
+
+.conteudo-titulo {
+    text-align: center;
+    margin-top: 64px;
+}
+
+.titulo-icone {
+    display: block;
+    margin: 0 auto 18px;
+    width: 48px;
+    height: auto;
+}
+
+.titulo-principal {
+    font-family: var(--roboto-mono);
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.titulo-secundario {
+    font-size: 22px;
+    color: #000000;
+}
+
+.conteudo-senha {
+    margin-top: 40px;
+    background: var(--fundo-senha);
+    padding: 28px;
+    border-radius: 24px;
     border-bottom: 6px solid var(--borda);
 }
 
-#campo-senha{
+.senha-wrapper {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 16px;
+}
+
+#campo-senha {
     background-color: var(--fundo-senha);
-    border: none;
+    border: 2px solid rgba(0, 0, 0, 0.12);
     color: var(--branco);
     font-family: var(--roboto-mono);
-    font-size: 40px;
-    width: 70%;
+    font-size: 28px;
+    width: 100%;
+    padding: 18px 16px;
+    border-radius: 16px;
 }
 
-#campo-senha:focus{
+#campo-senha:focus {
     outline: none;
+    border-color: var(--borda);
 }
 
-.conteudo{
-    max-width: 1200px;
-    margin: 0 auto;
+.botao-gerar,
+.botao-copiar,
+.parametro-senha__botao {
+    background-color: var(--borda);
+    border: none;
+    color: var(--branco);
+    cursor: pointer;
+    border-radius: 14px;
+    transition: filter 0.2s ease;
 }
 
-.parametro{
+.botao-gerar {
+    margin-top: 20px;
+    width: 100%;
+    padding: 16px;
+    font-size: 18px;
+}
+
+.botao-copiar {
+    padding: 14px 18px;
+    font-size: 16px;
+    min-width: 120px;
+}
+
+.botao-gerar:hover,
+.botao-copiar:hover,
+.parametro-senha__botao:hover {
+    filter: brightness(1.1);
+}
+
+.parametro {
     background-color: var(--fundo-texto);
     border: 2px solid var(--borda);
     margin-top: 32px;
     padding: 24px;
+    border-radius: 24px;
 }
 
-.parametro-titulo{
+.parametro-titulo {
     font-family: var(--roboto-mono);
     font-size: 28px;
+    margin-bottom: 24px;
 }
 
-.parametro-senha__titulo{
-    font-size:24px;
-}
-
-.parametro-coluna__senha{
+.parametro-coluna__senha {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-}
-.parametro-senha{
-    width: 50%;
-    margin: 0 auto;
+    gap: 24px;
 }
 
-.parametro-senha-botoes{
+.parametro-senha {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    padding: 22px;
+}
+
+.parametro-senha__titulo {
+    font-size: 22px;
+    margin-bottom: 16px;
+}
+
+.parametro-senha-botoes {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+.parametro-senha__botao {
+    width: 52px;
+    height: 52px;
+    font-size: 24px;
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
 }
 
-.parametro-senha__botao{
-    background-color: var(--fundo-texto);
-    color: var(--branco);
-    border: 2px solid var(--borda);
-    padding: 24px;
+.parametro-senha__texto {
     font-size: 24px;
-    cursor: pointer;
+    min-width: 48px;
+    text-align: center;
 }
 
-.parametro-senha__texto{
-    padding: 24px;
-    border-top: 2px solid var(--borda);
-    border-bottom: 2px solid var(--borda);
-    margin: 0;
-    font-size: 24px;
+.parametro-senha-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
 }
 
-label{
-    font-size: 20px;
+.checkbox {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--borda);
 }
 
-.checkbox{
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
+.barra {
+    width: 100%;
+    height: 18px;
+    background: rgba(39, 39, 39, 0.952);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 12px;
 }
+
+.forca {
+    height: 100%;
+    width: 0;
+    background: #007bc2;
+    border-radius: 12px;
+    transition: width 0.25s ease, background-color 0.25s ease;
+}
+
+.forca-texto {
+    margin-bottom: 12px;
+    font-size: 18px;
+    color: #d9f1ff;
+}
+
+.parametro-senha-textos {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    color: rgb(188, 239, 255);
+    font-size: 14px;
+}
+
 @media screen and (min-width: 768px) {
-    .parametro-coluna__senha{
-        flex-direction: row;
+    .senha-wrapper {
+        flex-wrap: nowrap;
     }
+
+    .conteudo-senha {
+        padding: 32px;
+    }
+
+    .parametro-coluna__senha {
+        flex-direction: row;
+        gap: 24px;
+    }
+
+    .parametro-senha {
+        width: calc(33.333% - 16px);
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .titulo-principal {
+        font-size: 30px;
+    }
+
+    .titulo-secundario {
+        font-size: 20px;
+    }
+
+    .botao-gerar {
+        font-size: 16px;
+        padding: 14px;
+    }
+}
+#titulo-icone{
+    color: rgb(35, 50, 99);
 }
